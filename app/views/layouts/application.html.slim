@@ -1,0 +1,35 @@
+doctype html
+html[lang="en"]
+  head
+    title
+      | Seamless Creative
+    meta[charset="utf-8"]
+    meta[name="description" content="Seamless Creative is a one-stop solution creative house based in Jakarta."]
+    meta[name="keywords" content="photography, videography, graphic design, motion design, social media content, management, podcast production"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    meta[property="og:locale" content="en_US"]
+    meta[property="og:type" content="website"]
+    meta[property="og:title" content="Seamless Creative"]
+    meta[property="og:url" content="https://www.seamless-creative.com"]
+    meta[property="og:site_name" content="Seamless Creative"]
+    link[rel="canonical" href="https://www.seamless-creative.com"]
+    link[rel="shortcut icon" href="https://d32v1kyhh0dos.cloudfront.net/assets/media/logos/favicon.ico"]
+    link[rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"]
+    link[href="https://d32v1kyhh0dos.cloudfront.net/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"]
+    link[href="https://d32v1kyhh0dos.cloudfront.net/assets/css/style.bundle.css" rel="stylesheet" type="text/css"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    / = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+  body#kt_body.bg-white.position-relative.app-blank[data-kt-name="metronic" data-bs-spy="scroll" data-bs-target="#kt_landing_menu"]
+    script
+      | if ( document.documentElement ) { const defaultThemeMode = "system"; const name = document.body.getAttribute("data-kt-name"); let themeMode = localStorage.getItem("kt_" + ( name !== null ? name + "_" : "" ) + "theme_mode_value"); if ( themeMode === null ) { if ( defaultThemeMode === "system" ) { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } else { themeMode = defaultThemeMode; } } document.documentElement.setAttribute("data-theme", themeMode); }
+      
+    = yield
+
+    script[src="https://d32v1kyhh0dos.cloudfront.net/assets/plugins/global/plugins.bundle.js"]
+    script[src="https://d32v1kyhh0dos.cloudfront.net/assets/js/scripts.bundle.js"]
+    script[src="https://d32v1kyhh0dos.cloudfront.net/assets/plugins/custom/fslightbox/fslightbox.bundle.js"]
+    script[src="https://d32v1kyhh0dos.cloudfront.net/assets/plugins/custom/typedjs/typedjs.bundle.js"]
+    script[src="https://d32v1kyhh0dos.cloudfront.net/assets/js/custom/landing.js"]
+    script[src="https://d32v1kyhh0dos.cloudfront.net/assets/js/custom/pages/pricing/general.js"]

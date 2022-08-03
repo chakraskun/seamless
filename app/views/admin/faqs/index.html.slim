@@ -1,0 +1,61 @@
+#kt_content.content.d-flex.flex-column.flex-column-fluid
+  #kt_subheader.subheader.py-2.py-lg-4
+    .container-fluid.d-flex.align-items-center.justify-content-between.flex-wrap.flex-sm-nowrap
+      #kt_app_toolbar.app-toolbar.py-3.py-lg-6
+        #kt_app_toolbar_container.app-container.container-fluid.d-flex.flex-stack
+          .page-title.d-flex.flex-column.justify-content-center.flex-wrap.me-3
+            h1.page-heading.d-flex.text-dark.fw-bold.fs-3.flex-column.justify-content-center.my-0
+              | Frequently Asked Question
+            ul.breadcrumb.breadcrumb-separatorless.fw-semibold.fs-7.my-0.pt-1
+              li.breadcrumb-item.text-muted
+                a.text-muted.text-hover-primary[
+                  href="#{admin_root_path}"
+                ]
+                  | Home
+  .d-flex.flex-column-fluid
+    .container
+      .row 
+        .col-12
+          .card.card-custom
+            .card-header
+              .card-title
+                span.card-icon
+                  i.flaticon2-favourite.text-primary
+                  | Total FAQs: #{@total_faqs}
+              .card-toolbar.font-weight-bolder
+                button.btn.btn-primary.font-weight-bolder.mr-2.my-1[
+                  data-target="#newFaq"
+                  data-toggle="modal"
+                  type="button"
+                ]
+                  i.la.la-plus
+                  | New FAQ
+            = turbo_stream_from "faqs"
+            .card-body
+              / [wip] datatable
+              table.table.table-responsive-md
+                thead
+                  tr
+                    th[
+                      scope="col"
+                      style="width:10%;"
+                    ] #
+                    th[
+                      scope="col"
+                      style="width:30%;"
+                    ] Q
+                    th[
+                      style="width:30%;"
+                      scope="col"
+                    ] A
+                    th[
+                      style="width:10%;"
+                      scope="col"
+                    ] order
+                tbody[
+                  id="faqs_table"
+                ]
+                  = render partial: "admin/faqs/table", locals: { faqs: @faqs }
+            
+              
+= render "new_faq", new_faq: @new_faq

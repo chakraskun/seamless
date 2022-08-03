@@ -1,0 +1,33 @@
+#newFaq.modal.fade[
+  aria-hidden="true"
+  role="dialog"
+  tabindex="-1"
+]
+  .modal-dialog.modal-lg role="document"
+    .modal-content
+      = form_with model: new_faq, url: admin_faqs_path, method: :post do |f|
+        .modal-header
+          h5#exampleModalLabel.modal-title Create New FAQ
+          button.close aria-label="Close" data-dismiss="modal" type="button"
+            i.ki.ki-close aria-hidden="true"
+        .modal-body
+          .form-group.row
+            .col-lg-2.col-form-label.text-lg-right
+              strong Question:
+            .col-lg-10
+              = f.text_area :question, class: "form-control", row: 40,
+              placeholder: "Question", autocomplete: "off", required: true
+          .form-group.row
+            .col-lg-2.col-form-label.text-lg-right
+              strong Answer:
+            .col-lg-10
+              = f.text_area :answer, class: "form-control", row: 10,
+              placeholder: "Answer", autocomplete: "off", required: true
+        .modal-footer
+          a.btn.btn-light-danger.font-weight-bold data-dismiss="modal" type="button" Cancel
+          button.btn.btn-primary.font-weight-bold[
+            type="submit"
+            data-controller="modal"
+            data-action="click->modal#handleClick"
+            data-modal-target="#newFaq"
+          ] Save
